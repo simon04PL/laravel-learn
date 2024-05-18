@@ -2,8 +2,28 @@
     color: purple;
 }
 
+.profile-info {
+    &_profile {
+        display: flex;
+    }
+    &_account-details {
+        display: flex;
+        p {
+            padding-right: 10px;
+        }
+    }
+}
 .logo {
     &_main {
-        padding: 5px;
+        margin: 15px;
+        width: 160px;
+    }
+}
+
+.photo {
+    display: flex;
+    &_listing {
+        max-width: 1260px;
+        padding: 10px;
     }
 }
