@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="profile-info_details">
-            <h1>{{ Auth::user()->name }}</h1>
+            <h1>{{ Auth::user()->username }}</h1>
             <div class="profile-info_account-details">
                 <p>id: <strong>{{ Auth::user()->id }}</strong></p>
                 <p>utworzony: <strong>{{ Auth::user()->created_at }}</strong></p>
