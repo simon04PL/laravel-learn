@@ -12,6 +12,12 @@
             padding-right: 10px;
         }
     }
+    &_info {
+        span {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
 }
 .logo {
     &_main {

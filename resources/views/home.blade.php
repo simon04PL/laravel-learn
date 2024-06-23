@@ -9,13 +9,31 @@
             </div>
         </div>
         <div class="profile-info_details">
-            <h1>{{ Auth::user()->username }}</h1>
+            @if($user->username && isset($user->username))
+                <h1>{{ $user->username}}</h1>
+            @endif
             <div class="profile-info_account-details">
-                <p>id: <strong>{{ Auth::user()->id }}</strong></p>
-                <p>utworzony: <strong>{{ Auth::user()->created_at }}</strong></p>
-                <p>ostatnia zmiana: <strong>{{ Auth::user()->updated_at }}</strong></p>
+                @if($user->id)
+                    <p>id: <strong>{{ $user->id }}</strong></p>
+                @endif
+                @if($user->created_at)
+                    <p>utworzony: <strong>{{ $user->created_at }}</strong></p>
+                @endif
+                @if($user->updated_at)
+                    <p>ostatnia zmiana: <strong>{{ $user->updated_at }}</strong></p>
+                @endif
             </div>
-            <span class="profile-info_mail">{{ Auth::user()->email }}</span>
+            <div class="profile-info_info">
+                @if($user->profile->title)
+                    <span class="profile-info_info_title"><strong>{{ $user->profile->title }}</strong></span>
+                @endif
+                @if($user->profile->description)
+                    <span class="profile-info_info_description">{{ $user->profile->description }}</span>
+                @endif
+                @if($user->profile->url)
+                    <span class="profile-info_info_url"><a href="{{$user->profile->url}}">{{ $user->profile->url }}</a></span>
+                @endif
+            </div>
         </div>
     </div>
 
