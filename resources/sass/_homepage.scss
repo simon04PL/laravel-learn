@@ -2,6 +2,15 @@
     color: purple;
 }
 
+.new-post {
+    &_btn {
+        display: flex;
+        position: relative;
+        top: -50px;
+        justify-content: right;
+    }
+}
+
 .profile-info {
     &_profile {
         display: flex;

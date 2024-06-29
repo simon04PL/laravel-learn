@@ -11,6 +11,7 @@
         <div class="profile-info_details">
             @if($user->username && isset($user->username))
                 <h1>{{ $user->username}}</h1>
+                <a href="#" class="new-post_btn">add new post</a>
             @endif
             <div class="profile-info_account-details">
                 @if($user->id)
