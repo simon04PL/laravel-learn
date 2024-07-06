@@ -5,7 +5,7 @@
     <div class="profile-info_profile">
         <div class="logo">
             <div class="logo_main">
-                <img src="https://placehold.co/150x150?text=Hello+World" />
+                <img class=photo src="https://placehold.co/150x150?text=Hello+World" />
             </div>
         </div>
         <div class="profile-info_details">
@@ -40,13 +40,13 @@
 
     <div class="photo">
         <div class="photo_listing">
-            <img src="https://placehold.co/400x400?text=Hello+World" />
+            <img class="photo_details" src="https://placehold.co/400x400?text=Hello+World" />
         </div>
         <div class="photo_listing">
-            <img src="https://placehold.co/400x400?text=Hello+World" />
+            <img class="photo_details" src="https://placehold.co/400x400?text=Hello+World" />
         </div>
         <div class="photo_listing">
-            <img src="https://placehold.co/400x400?text=Hello+World" />
+            <img class="photo_details" src="https://placehold.co/400x400?text=Hello+World" />
         </div>
     </div>
 </div>
