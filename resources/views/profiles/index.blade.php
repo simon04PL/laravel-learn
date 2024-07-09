@@ -11,11 +11,11 @@
         <div class="profile-info_details">
             @if($user->username && isset($user->username))
                 <h1>{{ $user->username}}</h1>
-                <a href="#" class="new-post_btn">add new post</a>
+                <a href="/p/create" class="new-post_btn">add new post</a>
             @endif
             <div class="profile-info_account-details">
                 @if($user->id)
-                    <p>id: <strong>{{ $user->id }}</strong></p>
+                    <p>posty: <strong>{{ $user->posts->count() }}</strong></p>
                 @endif
                 @if($user->created_at)
                     <p>utworzony: <strong>{{ $user->created_at }}</strong></p>
@@ -39,15 +39,12 @@
     </div>
 
     <div class="photo">
-        <div class="photo_listing">
-            <img class="photo_details" src="https://placehold.co/400x400?text=Hello+World" />
-        </div>
-        <div class="photo_listing">
-            <img class="photo_details" src="https://placehold.co/400x400?text=Hello+World" />
-        </div>
-        <div class="photo_listing">
-            <img class="photo_details" src="https://placehold.co/400x400?text=Hello+World" />
-        </div>
+        @foreach ($user->posts as $post)
+            <div class="photo_listing">
+                <img src="/storage/{{$post->image}}" />
+            </div>
+        @endforeach
+        
     </div>
 </div>
 @endsection
