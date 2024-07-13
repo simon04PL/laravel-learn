@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManagerStatic as Image;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class PostsController extends Controller
 {
@@ -11,6 +12,7 @@ class PostsController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function create()
     {
         return view('posts.create');
@@ -25,9 +27,8 @@ class PostsController extends Controller
 
         $imagePath = request('image')->store('uploads', 'public');
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->resize(400, null, function ($constraint) {
-            $constraint->aspectRatio();
-        });
+        $manager = new ImageManager(new Driver());
+        $image = $manager->read(public_path("storage/{$imagePath}"))->resize(400, 400);
         $image->save();
 
         auth()->user()->posts()->create([
@@ -36,5 +37,10 @@ class PostsController extends Controller
         ]);
 
         return redirect('/profile/' . auth()->user()->id);
+    }
+
+    public function show($post)
+    {
+        dd($post);
     }
 }

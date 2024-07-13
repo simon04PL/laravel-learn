@@ -41,7 +41,9 @@
     <div class="photo">
         @foreach ($user->posts as $post)
             <div class="photo_listing">
-                <img src="/storage/{{$post->image}}" />
+                <a href="/p/{{ $post->id}}">
+                    <img src="/storage/{{$post->image}}" />
+                </a>
             </div>
         @endforeach
         
