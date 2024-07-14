@@ -2,3 +2,21 @@
     margin-top: 10px;
     width: 200px;
 }
+
+.photo {
+    &--container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    &--details {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &--info {
+        padding-left: 15px;
+    }
+}

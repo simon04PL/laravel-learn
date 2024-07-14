@@ -28,7 +28,7 @@ class PostsController extends Controller
         $imagePath = request('image')->store('uploads', 'public');
 
         $manager = new ImageManager(new Driver());
-        $image = $manager->read(public_path("storage/{$imagePath}"))->resize(400, 400);
+        $image = $manager->read(public_path("storage/{$imagePath}"))->resize(1200, 1200);
         $image->save();
 
         auth()->user()->posts()->create([
@@ -39,8 +39,8 @@ class PostsController extends Controller
         return redirect('/profile/' . auth()->user()->id);
     }
 
-    public function show($post)
+    public function show(\App\Models\Post $post)
     {
-        dd($post);
+        return view('posts.show', compact('post'));
     }
 }

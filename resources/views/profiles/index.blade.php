@@ -12,6 +12,7 @@
             @if($user->username && isset($user->username))
                 <h1>{{ $user->username}}</h1>
                 <a href="/p/create" class="new-post_btn">add new post</a>
+                <a href="/profile/{{$user->id}}/edit" class="edit-profile_btn">edit profile</a>
             @endif
             <div class="profile-info_account-details">
                 @if($user->id)
@@ -42,7 +43,7 @@
         @foreach ($user->posts as $post)
             <div class="photo_listing">
                 <a href="/p/{{ $post->id}}">
-                    <img src="/storage/{{$post->image}}" />
+                    <img src="/storage/{{$post->image}}" width="400" height="400"/>
                 </a>
             </div>
         @endforeach
