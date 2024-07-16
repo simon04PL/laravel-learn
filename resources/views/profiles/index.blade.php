@@ -5,14 +5,18 @@
     <div class="profile-info_profile">
         <div class="logo">
             <div class="logo_main">
-                <img class=photo src="https://placehold.co/150x150?text=Hello+World" />
+                <img class="photo" src="/storage/{{$user->profile->image}}" width="100"/>
             </div>
         </div>
         <div class="profile-info_details">
             @if($user->username && isset($user->username))
                 <h1>{{ $user->username}}</h1>
-                <a href="/p/create" class="new-post_btn">add new post</a>
-                <a href="/profile/{{$user->id}}/edit" class="edit-profile_btn">edit profile</a>
+                @can('update', $user->profile)
+                    <a href="/p/create" class="new-post_btn">add new post</a>
+                @endcan
+                @can('update', $user->profile)
+                    <a href="/profile/{{ $user->id }}/edit" class="edit-profile_btn">edit profile</a>
+                @endcan
             @endif
             <div class="profile-info_account-details">
                 @if($user->id)
@@ -26,13 +30,13 @@
                 @endif
             </div>
             <div class="profile-info_info">
-                @if($user->profile->title)
+                @if($user->profile->title && isset($user->profile->title))
                     <span class="profile-info_info_title"><strong>{{ $user->profile->title }}</strong></span>
                 @endif
-                @if($user->profile->description)
+                @if($user->profile->description && isset($user->profile->description))
                     <span class="profile-info_info_description">{{ $user->profile->description }}</span>
                 @endif
-                @if($user->profile->url)
+                @if($user->profile->url && isset($user->profile->url))
                     <span class="profile-info_info_url"><a href="{{$user->profile->url}}">{{ $user->profile->url }}</a></span>
                 @endif
             </div>

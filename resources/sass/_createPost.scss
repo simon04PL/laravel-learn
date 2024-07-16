@@ -4,6 +4,7 @@
 }
 
 .photo {
+    border-radius: 100%;
     &--container {
         display: flex;
         justify-content: center;
@@ -16,7 +17,21 @@
         justify-content: center;
     }
 
+    &--logo{
+        &-small {
+            max-width: 50px;
+        }
+    }
+
     &--info {
         padding-left: 15px;
+        &_user {
+            display: flex;
+            &-details {
+                display: flex;
+                align-items: center;
+                padding-left: 15px;
+            }
+        }
     }
 }
