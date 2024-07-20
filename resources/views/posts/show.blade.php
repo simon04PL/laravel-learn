@@ -4,21 +4,34 @@
 <div class="container">
     <div class="photo--container">
         <div class="photo--details">
-            <img src="/storage/{{$post->image}}" class="photo-detail_img" />
+            <img src="/storage/{{$post->image}}" class="photo--details_img" />
         </div>
         <div class="photo--info">
             <div class="photo--info_user--all">
                 <div class="photo--info_user">
                     <div class="photo--info_user-logo">
-                        <img src="/storage/{{$post->user->profile->image}}" class="photo photo--logo-small" width="100" />
+                        <img src="{{$user->profile->profileImage()}}" class="photo photo--logo-small" width="40" />
                     </div>
                     <div class="photo--info_user-details">
-                        <h3>{{$post->user->username}}</h3>
-                        <a href="/profile/{{$post->user->id}}" class="photo--info_user-link">visit profile</a>
+                        <a href="/profile/{{ $post->user->id}}" class="profile--link">
+                            <span class="profile--link-dark">
+                                <strong>{{$post->user->username}}</strong>
+                            </span>
+                        </a>
+                        <a href="#" class="profile--follow">Follow</a>
                     </div>
                 </div>
 
-                <p>{{$post->caption}}</p>
+                <hr/>
+
+                <p>
+                    <a href="/profile/{{ $post->user->id}}" class="profile--link">
+                        <span class="profile--link-dark">
+                            <strong>{{$post->user->username}}</strong>
+                        </span>
+                    </a> 
+                    {{$post->caption}}
+                </p>
             </div>
         </div>
     </div>

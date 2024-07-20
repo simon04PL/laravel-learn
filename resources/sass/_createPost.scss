@@ -15,6 +15,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        &_img {
+            max-width: 800px;
+        }
     }
 
     &--logo{
@@ -25,6 +28,7 @@
 
     &--info {
         padding-left: 15px;
+        width: 300px;
         &_user {
             display: flex;
             &-details {

@@ -11,6 +11,18 @@
     }
 }
 
+.profile {
+    &--link-dark {
+        color: #000;
+    }
+    &--link {
+        text-decoration: none;
+    }
+    &--follow {
+        margin-left: 10px;
+    }
+}
+
 .profile-info {
     &_profile {
         display: flex;
@@ -26,6 +38,11 @@
             display: flex;
             flex-wrap: wrap;
         }
+    }
+    &--usernamefollow {
+        display: flex;
+        align-items: center;
+        padding-bottom: 15px;
     }
 }
 .logo {

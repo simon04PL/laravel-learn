@@ -5,12 +5,16 @@
     <div class="profile-info_profile">
         <div class="logo">
             <div class="logo_main">
-                <img class="photo" src="/storage/{{$user->profile->image}}" width="100"/>
+                <img class="photo" src="{{$user->profile->profileImage()}}" width="100"/>
             </div>
         </div>
         <div class="profile-info_details">
             @if($user->username && isset($user->username))
-                <h1>{{ $user->username}}</h1>
+                <div class="profile-info--usernamefollow">
+                    <h4>{{ $user->username}}</h4>
+                    <follow-button user-id="{{$user->id}}" follows="{{$follows}}"></follow-button>
+                </div>
+
                 @can('update', $user->profile)
                     <a href="/p/create" class="new-post_btn">add new post</a>
                 @endcan
@@ -19,15 +23,9 @@
                 @endcan
             @endif
             <div class="profile-info_account-details">
-                @if($user->id)
-                    <p>posty: <strong>{{ $user->posts->count() }}</strong></p>
-                @endif
-                @if($user->created_at)
-                    <p>utworzony: <strong>{{ $user->created_at }}</strong></p>
-                @endif
-                @if($user->updated_at)
-                    <p>ostatnia zmiana: <strong>{{ $user->updated_at }}</strong></p>
-                @endif
+                <p>posty: <strong>{{ $user->posts->count() }}</strong></p>
+                <p>followers: <strong>{{ $user->profile->followers->count() }}</strong></p>
+                <p>following: <strong>{{ $user->following->count() }}</strong></p>
             </div>
             <div class="profile-info_info">
                 @if($user->profile->title && isset($user->profile->title))
