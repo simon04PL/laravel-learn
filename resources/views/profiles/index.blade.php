@@ -23,9 +23,9 @@
                 @endcan
             @endif
             <div class="profile-info_account-details">
-                <p>posty: <strong>{{ $user->posts->count() }}</strong></p>
-                <p>followers: <strong>{{ $user->profile->followers->count() }}</strong></p>
-                <p>following: <strong>{{ $user->following->count() }}</strong></p>
+                <p>posty: <strong>{{ $postCount }}</strong></p>
+                <p>followers: <strong>{{ $followersCount }}</strong></p>
+                <p>following: <strong>{{ $followingCount }}</strong></p>
             </div>
             <div class="profile-info_info">
                 @if($user->profile->title && isset($user->profile->title))

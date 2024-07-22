@@ -10,7 +10,7 @@
             <div class="photo--info_user--all">
                 <div class="photo--info_user">
                     <div class="photo--info_user-logo">
-                        <img src="{{$user->profile->profileImage()}}" class="photo photo--logo-small" width="40" />
+                        <img src="{{$post->user->profile->profileImage()}}" class="photo photo--logo-small" width="40" />
                     </div>
                     <div class="photo--info_user-details">
                         <a href="/profile/{{ $post->user->id}}" class="profile--link">

@@ -11,6 +11,20 @@
         margin-top: 20px;
     }
 
+    &--main-listing {
+        display: flex;
+        justify-content: center;
+        width: 800px;
+        padding-top: 15px;
+    }
+
+    &--more {
+        &--btn {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
     &--details {
         display: flex;
         align-items: center;
